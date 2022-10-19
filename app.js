@@ -4,8 +4,8 @@ ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
 const spawn = require('child_process').spawn;
 
-let FilePath = 'VIDEO PATH HERE';
-let streamKey = 'STREAM KEY HERE';
+let FilePath = 'https://epiconvh.s.llnwi.net/showbox/master_1024.m3u8';
+let streamKey = 'rtmp://ingest.mediaserver.express/live/qeFm8g3b?pwd=16d3ff';
 
 let ffmpeg = spawn('ffmpeg', ['-re', '-stream_loop', '-1', '-i', `${ FilePath }`, '-c:v', 'libx264', '-preset', 'veryfast',
                    '-framerate', '60', '-maxrate', '3000k', '-bufsize', '6000k', '-pix_fmt', 'yuv420p', '-g', '50', '-c:a', 'aac', '-b:a', '128k',
